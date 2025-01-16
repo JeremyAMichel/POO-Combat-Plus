@@ -15,7 +15,7 @@ require_once './partials/header.php';
         <form action="/process/create-hero-process.php" method="post">
             <div class="form-group mb-4">
                 <label for="name" class="block text-white text-lg">Hero Name:</label>
-                <input type="text" id="name" name="name" class="form-control mt-2 p-2 w-full bg-gray-700 text-white border border-gray-600 rounded" required>
+                <input type="text" id="name" name="name" class="form-control mt-2 p-2 w-full bg-gray-700 text-white border border-gray-600 rounded" maxlength="30" required>
             </div>
             <div class="form-group mb-4">
                 <label for="gender" class="block text-white text-lg">Gender:</label>

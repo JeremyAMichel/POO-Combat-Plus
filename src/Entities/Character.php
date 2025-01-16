@@ -1,6 +1,6 @@
 <?php
 
-abstract class Character implements AttackableInterface
+abstract class Character implements AttackableContract
 {
     use AttackableTrait;
     protected int $id;
@@ -25,7 +25,7 @@ abstract class Character implements AttackableInterface
         return $this->name;
     }
 
-    public function hit(AttackableInterface $target): void
+    public function hit(AttackableContract $target): void
     {
         $target->setHealth($target->getHealth() - 15);
     }

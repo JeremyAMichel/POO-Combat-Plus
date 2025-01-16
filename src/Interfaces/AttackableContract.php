@@ -1,6 +1,6 @@
 <?php
 
-interface AttackableInterface
+interface AttackableContract
 {
     public function getHealth(): int;
     public function setHealth(int $health): void;
