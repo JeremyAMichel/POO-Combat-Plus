@@ -32,12 +32,12 @@ require_once './partials/header.php';
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
                         <div class="bg-green-500 h-2.5 rounded-full" style="width: <?php echo htmlspecialchars($hero->getHealth()); ?>%"></div>
                     </div>
-                    <form action="choice-hero-process.php" method="post">
+                    <form action="../process/choice-hero-process.php" method="post">
                         <input type="hidden" name="hero_id" value="<?php echo htmlspecialchars($hero->getId()); ?>">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Play</button>
                     </form>
                 </div>
-                <form action="delete-hero.php" method="post" class="absolute top-2 right-2">
+                <form action="../process/delete-hero-process.php" method="post" class="absolute top-2 right-2">
                     <input type="hidden" name="hero_id" value="<?php echo htmlspecialchars($hero->getId()); ?>">
                     <button type="submit" class="text-red-500 hover:text-red-700 transition duration-300">🗑️</button>
                 </form>

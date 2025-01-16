@@ -44,4 +44,11 @@ final class HeroRepository extends AbstractRepository
             ':picture_path' => $hero->getPicturePath()
         ]);
     }
+
+    public function delete(int $id): void
+    {
+        $sql = 'DELETE FROM hero WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+    }
 }
