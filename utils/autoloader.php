@@ -21,6 +21,12 @@ spl_autoload_register(function ($className) {
         case substr($className, -7) === 'Service':
             $directory = 'Services';
             break;
+        case substr($className, -5) === 'Trait':
+            $directory = 'Traits';
+            break;
+        case substr($className, -9) === 'Interface':
+            $directory = 'Interfaces';
+            break;
         default:
             $directory = 'Entities';
             break;
