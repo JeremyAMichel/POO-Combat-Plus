@@ -4,7 +4,7 @@ require_once '../utils/autoloader.php';
 
 session_start();
 
-if (!isset($_SESSION['hero'])) {
+if (!isset($_SESSION['hero']) || !isset($_SESSION['monster'])) {
     header('Location: /public/choice-hero.php');
     exit;
 }
@@ -13,7 +13,7 @@ if (!isset($_SESSION['hero'])) {
  * @var Hero $hero
  */
 $hero = $_SESSION['hero'];
-$monster = new Monster(0, 'Monster', 80);
+$monster = $_SESSION['monster'];
 
 require_once './partials/header.php';
 
@@ -27,9 +27,9 @@ require_once './partials/header.php';
                 <img src="<?php echo htmlspecialchars($hero->getPicturePath()); ?>" alt="<?php echo htmlspecialchars($hero->getName()); ?>" class="w-full h-48 object-contain mb-4">
                 <div class="p-4">
                     <h2 class="text-xl font-bold mb-4 text-white">🦸 <?php echo htmlspecialchars($hero->getName()); ?></h2>
-                    <p class="text-gray-400 mb-4">❤️ Health: <?php echo htmlspecialchars($hero->getHealth()); ?>/100</p>
+                    <p class="text-gray-400 mb-4">❤️ Health: <span id="hero-health"><?php echo htmlspecialchars($hero->getHealth()); ?></span>/<?php echo htmlspecialchars($hero->getHealth()); ?></p>
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
-                        <div class="bg-green-500 h-2.5 rounded-full" style="width: <?php echo htmlspecialchars($hero->getHealth()); ?>%"></div>
+                        <div id="hero-healthBar" class="bg-green-500 h-2.5 rounded-full" style="width: <?php echo htmlspecialchars($hero->getHealth()); ?>%"></div>
                     </div>
                 </div>
             </article>
@@ -37,9 +37,9 @@ require_once './partials/header.php';
                 <img src="/public/assets/imgs/goblin.gif" alt="<?php echo htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4">
                 <div class="p-4">
                     <h2 class="text-xl font-bold mb-4 text-white">👾 <?= htmlspecialchars($monster->getName()); ?></h2>
-                    <p class="text-gray-400 mb-4">❤️ Health: <?= htmlspecialchars($monster->getHealth()); ?>/<?= htmlspecialchars($monster->getHealth()); ?></p>
+                    <p class="text-gray-400 mb-4">❤️ Health: <span id="monster-health"><?= htmlspecialchars($monster->getHealth()); ?></span></p /<?= htmlspecialchars($monster->getHealth()); ?></p>
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
-                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 100%"></div>
+                        <div id="monster-healthBar" class="bg-red-500 h-2.5 rounded-full" style="width: 100%"></div>
                     </div>
                 </div>
             </article>
@@ -51,6 +51,8 @@ require_once './partials/header.php';
         </div>
     </div>
 </main>
+
+<script src="./assets/scripts/fight.js"></script>
 
 <?php
 

@@ -23,5 +23,6 @@ $hero = $heroRepository->findById($sanitizedData['hero_id']);
 session_start();
 
 $_SESSION['hero'] = $hero;
+$_SESSION['monster'] = new Monster(0, 'Monster', 80);
 
 header("Location: /public/fight.php");
