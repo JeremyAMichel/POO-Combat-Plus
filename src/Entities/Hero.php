@@ -6,9 +6,9 @@ final class Hero extends Character
     private string $gender;
     private string $picturePath;
 
-    public function __construct(int $id, string $name = "", string $gender = "Male", int $health = 100)
+    public function __construct(int $id, string $name = "", string $gender = "Male", int $health = 100, int $healthMax = 100)
     {
-        parent::__construct($id, $name, $health);
+        parent::__construct($id, $name, $health, $healthMax);
 
         $this->gender = $gender;
         

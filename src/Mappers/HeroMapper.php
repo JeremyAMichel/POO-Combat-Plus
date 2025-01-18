@@ -9,7 +9,7 @@ class HeroMapper implements MapperContract
             $data['name'],
             $data['gender'],
             $data['health'],
-            $data['picture_path'],
+            $data['hp_max'],
         );
     }
 }

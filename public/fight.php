@@ -27,9 +27,9 @@ require_once './partials/header.php';
                 <img src="<?php echo htmlspecialchars($hero->getPicturePath()); ?>" alt="<?php echo htmlspecialchars($hero->getName()); ?>" class="w-full h-48 object-contain mb-4">
                 <div class="p-4">
                     <h2 class="text-xl font-bold mb-4 text-white">🦸 <?php echo htmlspecialchars($hero->getName()); ?></h2>
-                    <p class="text-gray-400 mb-4">❤️ Health: <span id="hero-health"><?php echo htmlspecialchars($hero->getHealth()); ?></span>/<?php echo htmlspecialchars($hero->getHealth()); ?></p>
+                    <p class="text-gray-400 mb-4">❤️ Health: <span id="hero-health"><?php echo htmlspecialchars($hero->getHealth()); ?></span>/<?php echo htmlspecialchars($hero->getHealthMax()); ?></p>
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
-                        <div id="hero-healthBar" class="bg-green-500 h-2.5 rounded-full" style="width: <?php echo htmlspecialchars($hero->getHealth()); ?>%"></div>
+                        <div id="hero-healthBar" class="bg-green-500 h-2.5 rounded-full transition-all" style="width: <?php echo htmlspecialchars($hero->getHealth() / $hero->getHealthMax() * 100); ?>%"></div>
                     </div>
                 </div>
             </article>
@@ -37,9 +37,9 @@ require_once './partials/header.php';
                 <img src="/public/assets/imgs/goblin.gif" alt="<?php echo htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4">
                 <div class="p-4">
                     <h2 class="text-xl font-bold mb-4 text-white">👾 <?= htmlspecialchars($monster->getName()); ?></h2>
-                    <p class="text-gray-400 mb-4">❤️ Health: <span id="monster-health"><?= htmlspecialchars($monster->getHealth()); ?></span></p /<?= htmlspecialchars($monster->getHealth()); ?></p>
+                    <p class="text-gray-400 mb-4">❤️ Health: <span id="monster-health"><?= htmlspecialchars($monster->getHealth()); ?></span>/<?= htmlspecialchars($monster->getHealthMax()); ?></p>
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
-                        <div id="monster-healthBar" class="bg-red-500 h-2.5 rounded-full" style="width: 100%"></div>
+                        <div id="monster-healthBar" class="bg-red-500 h-2.5 rounded-full transition-all" style="width: <?php echo htmlspecialchars($monster->getHealth() / $monster->getHealthMax() * 100) ?>%"></div>
                     </div>
                 </div>
             </article>

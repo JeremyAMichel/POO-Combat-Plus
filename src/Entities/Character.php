@@ -7,11 +7,12 @@ abstract class Character implements AttackableContract
     protected string $name;
     
 
-    public function __construct(int $id, string $name = "", int $health = 100)
+    public function __construct(int $id, string $name = "", int $health = 100, int $healthMax = 100)
     {
         $this->id = $id;
         $this->name = $name;
         $this->health = $health;
+        $this->healthMax = $healthMax;
     }
 
     

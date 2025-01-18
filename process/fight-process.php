@@ -7,12 +7,13 @@ if(!$_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-if (!isset($_SESSION['hero'])) {
+if (!isset($_SESSION['hero']) || !isset($_SESSION['monster'])) {
     header('Location: /public/fight.php');
     exit;
 }
 
-$fightController = new FightController();
+$fightController = new FightController($_SESSION['hero'], $_SESSION['monster']);
+$fightController->handleRequest();
 
 // TODO: Implement the fight logic
 
