@@ -23,12 +23,16 @@ final class HeroRepository extends AbstractRepository
         return $heroes;
     }
 
-    public function findById(int $id): Hero
+    public function findById(int $id): ?Hero
     {
         $sql = 'SELECT * FROM hero WHERE id = :id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
         $heroData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$heroData) {
+            return null;
+        }
 
         return HeroMapper::MapToObject($heroData);
     }

@@ -18,7 +18,12 @@ if (!$validator->validate($_POST)) {
 $sanitizedData = $validator->sanitize($_POST);
 
 $heroRepository = new HeroRepository();
+
 $hero = $heroRepository->findById($sanitizedData['hero_id']);
+if (!$hero) {
+    header('Location: ../public/choice-hero.php');
+    return;
+}
 
 session_start();
 
