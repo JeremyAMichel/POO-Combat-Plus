@@ -46,10 +46,20 @@ final class HeroRepository extends AbstractRepository
         ]);
     }
 
-    public function delete(int $id): void
+    public function update(Hero $hero): void
+    {
+        $sql = 'UPDATE hero SET health = :health WHERE id=:id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id' => $hero->getId(),
+            'health' => $hero->getHealth(),
+        ]);
+    }
+
+    public function delete(Hero $hero): void
     {
         $sql = 'DELETE FROM hero WHERE id = :id';
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['id' => $hero->getId()]);
     }
 }

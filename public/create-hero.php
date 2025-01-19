@@ -10,7 +10,7 @@ require_once './partials/header.php';
 
 <main class="min-h-screen flex items-center justify-center">
 
-    <div class="container mx-auto p-6 bg-gray-800 rounded-lg shadow-lg">
+    <div class="container mx-auto p-6 bg-gray-800 rounded-lg shadow-lg max-w-xl">
         <h1 class="text-3xl font-bold text-white mb-6">Create a Hero</h1>
         <form action="/process/create-hero-process.php" method="post">
             <div class="form-group mb-4">

@@ -17,7 +17,7 @@ if (!$validator->validate($_POST)) {
 $sanitizedData = $validator->sanitize($_POST);
 
 $heroRepository = new HeroRepository();
-$heroRepository->delete($sanitizedData['hero_id']);
+$heroRepository->delete($heroRepository->findById($sanitizedData['hero_id']));
 
 header("Location: /public/choice-hero.php");
 

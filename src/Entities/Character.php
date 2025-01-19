@@ -5,7 +5,7 @@ abstract class Character implements AttackableContract
     use AttackableTrait;
     protected int $id;
     protected string $name;
-    
+
 
     public function __construct(int $id, string $name = "", int $health = 100, int $healthMax = 100)
     {
@@ -15,7 +15,7 @@ abstract class Character implements AttackableContract
         $this->healthMax = $healthMax;
     }
 
-    
+
     public function getId(): int
     {
         return $this->id;
@@ -28,8 +28,11 @@ abstract class Character implements AttackableContract
 
     public function hit(AttackableContract $target): void
     {
-        $target->setHealth($target->getHealth() - 15);
+        // Si la cible a moins de 15 points de vie, on lui met 0 pour pas avoir de nombre negatif
+        if ($target->getHealth() - 15 <= 0) {
+            $target->setHealth(0);
+        } else {
+            $target->setHealth($target->getHealth() - 15);
+        }
     }
-
- 
 }

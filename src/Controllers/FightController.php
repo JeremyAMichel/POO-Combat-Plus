@@ -4,12 +4,14 @@ final class FightController
 {
     private Hero $hero;
     private Monster $monster;
+    private HeroRepository $heroRepository;
 
 
     public function __construct(Hero $hero, Monster $monster)
     {
         $this->hero = $hero;
         $this->monster = $monster;
+        $this->heroRepository = new HeroRepository();
     }
 
 
@@ -18,16 +20,22 @@ final class FightController
         // TODO: Implement the fight logic
         $input = json_decode(file_get_contents('php://input'), true);
         $action = $input['action'] ?? '';
-        $response = '';
+
 
         switch ($action) {
             case 'attack':
-                $this->hero->hit($this->monster);
-                $this->monster->hit($this->hero);
-                $response = "{$this->hero->getName()} attaque {$this->monster->getName()}\n";
-                $response .= "{$this->hero->getName()} a infligé 15 points de dégâts à {$this->monster->getName()}\n";
-                $response .= "{$this->monster->getName()} attaque {$this->hero->getName()}\n";
-                $response .= "{$this->monster->getName()} a infligé 10 points de dégâts à {$this->hero->getName()}";
+                $response = $this->handleAttack();
+
+                if ($this->hero->getHealth() <= 0) {
+                    $action = 'defeat';
+                    $reponse = $this->handleDefeat();
+                }
+
+                if ($this->monster->getHealth() <= 0) {
+                    $action = 'victory';
+                    $response = $this->handleVictory();
+                }
+
                 break;
             default:
                 $response = 'Action non reconnue';
@@ -46,5 +54,42 @@ final class FightController
                 'healthBar' => $this->monster->getHealth() / $this->monster->getHealthMax() * 100
             ]
         ]]);
+    }
+
+
+    private function handleAttack(): string
+    {
+        $response = '';
+
+        // Empecher le combat si l'un des deux personnages est mort
+        if ($this->hero->getHealth() <= 0 || $this->monster->getHealth() <= 0) {
+            return 'Le combat est terminé';
+        }
+
+        $this->hero->hit($this->monster);
+        $this->monster->hit($this->hero);
+
+        $response = "{$this->hero->getName()} attaque {$this->monster->getName()}\n";
+        $response .= "{$this->hero->getName()} a infligé 15 points de dégâts à {$this->monster->getName()}\n";
+        $response .= "{$this->monster->getName()} attaque {$this->hero->getName()}\n";
+        $response .= "{$this->monster->getName()} a infligé 15 points de dégâts à {$this->hero->getName()}";
+
+        return $response;
+    }
+
+    private function handleVictory(): string
+    {
+        // TODO: Implement the victory logic
+        $_SESSION['result'] = 'victory';
+        $this->heroRepository->update($this->hero);
+        return 'Victory';
+    }
+
+    private function handleDefeat(): string
+    {
+        // TODO: Implement the defeat logic
+        $_SESSION['result'] = 'defeat';
+        $this->heroRepository->delete($this->hero);
+        return 'Defeat';
     }
 }

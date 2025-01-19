@@ -24,5 +24,6 @@ session_start();
 
 $_SESSION['hero'] = $hero;
 $_SESSION['monster'] = new Monster(0, 'Monster', 80, 80);
+$_SESSION['result'] = "fighting";
 
 header("Location: /public/fight.php");

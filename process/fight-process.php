@@ -15,6 +15,7 @@ if (!isset($_SESSION['hero']) || !isset($_SESSION['monster'])) {
 $fightController = new FightController($_SESSION['hero'], $_SESSION['monster']);
 $fightController->handleRequest();
 
+
 // TODO: Implement the fight logic
 
 
