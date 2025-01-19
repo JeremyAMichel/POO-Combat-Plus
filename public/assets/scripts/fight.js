@@ -59,8 +59,10 @@ function updateHealthBars(state) {
 function hideFightScreen() {
   let fightScreen = document.querySelector("#fight-screen");
   document.querySelector("h1").classList.add("hidden");
+  document.querySelector("#attacks").classList.add("hidden");
   fightScreen.classList.add("hidden");
-  heroAttack.classList.add("hidden");
+
+  // heroAttack.classList.add("hidden");
 }
 
 function displayVictory() {
