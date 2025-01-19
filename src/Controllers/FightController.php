@@ -70,9 +70,9 @@ final class FightController
         $this->monster->hit($this->hero);
 
         $response = "{$this->hero->getName()} attaque {$this->monster->getName()}\n";
-        $response .= "{$this->hero->getName()} a infligé 15 points de dégâts à {$this->monster->getName()}\n";
+        $response .= "{$this->hero->getName()} a infligé {$this->hero->getAttack()} points de dégâts à {$this->monster->getName()}\n";
         $response .= "{$this->monster->getName()} attaque {$this->hero->getName()}\n";
-        $response .= "{$this->monster->getName()} a infligé 15 points de dégâts à {$this->hero->getName()}";
+        $response .= "{$this->monster->getName()} a infligé {$this->monster->getAttack()} points de dégâts à {$this->hero->getName()}";
 
         return $response;
     }

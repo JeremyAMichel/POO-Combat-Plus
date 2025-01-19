@@ -15,7 +15,7 @@ let heroAttack = document.querySelector("#attack");
 
 heroAttack.addEventListener("click", handleClickAttack);
 
-function handleClickAttack(event) {
+function handleClickAttack() {
   // Empeche d'attaquer si l'un des deux est déjà mort
   if (heroHealth.textContent <= 0 || monsterHealth.textContent <= 0) {
     heroAttack.removeEventListener("click", handleClickAttack);

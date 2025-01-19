@@ -28,7 +28,10 @@ require_once './partials/header.php';
                 <img src="<?php echo htmlspecialchars($hero->getPicturePath()); ?>" alt="<?php echo htmlspecialchars($hero->getName()); ?>" class="w-full h-48 object-contain mb-4">
                 <div class="p-4">
                     <h2 class="text-xl font-bold mb-4 text-white">🦸 <?php echo htmlspecialchars($hero->getName()); ?></h2>
-                    <p class="text-gray-400 mb-4">❤️ Health: <?php echo htmlspecialchars($hero->getHealth()); ?>/<?php echo htmlspecialchars($hero->getHealthMax()) ?></p>
+                    <div class="flex justify-between mb-4">
+                        <p class="text-gray-400">❤️ <?php echo htmlspecialchars($hero->getHealth()); ?>/<?php echo htmlspecialchars($hero->getHealthMax()); ?></p>
+                        <p class="text-gray-400">⚔️ <?php echo htmlspecialchars($hero->getAttack()); ?></p>
+                    </div>
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
                         <div class="bg-green-500 h-2.5 rounded-full" style="width: <?php echo htmlspecialchars($hero->getHealth()); ?>%"></div>
                     </div>
