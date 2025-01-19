@@ -55,7 +55,7 @@ require_once './partials/header.php';
                     <h2 class="text-9xl font-bold text-white">VS</h2>
                 </div>
                 <article class="bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition duration-500 p-4 relative">
-                    <img src="/public/assets/imgs/goblin.gif" alt="<?php echo htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
+                    <img src="<?= htmlspecialchars($monster->getPicturePath())  ?>" alt="<?php echo htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
                     <div class="p-4">
                         <h2 class="text-xl font-bold mb-4 text-white">👾 <?= htmlspecialchars($monster->getName()); ?></h2>
                         <div class="flex justify-evenly mb-4">

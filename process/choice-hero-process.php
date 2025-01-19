@@ -25,10 +25,26 @@ if (!$hero) {
     return;
 }
 
+
+$randomNumber = rand(1, 15);
+
+// 1/15 chance to fight a dragon
+if ($randomNumber == 1) {
+    $monster = new Dragon();
+} 
+// 5/15 chance to fight an ogre
+elseif ($randomNumber <= 6) {
+    $monster = new Ogre();
+} 
+// 9/15 chance to fight a goblin
+else {
+    $monster = new Goblin();
+}
+
 session_start();
 
 $_SESSION['hero'] = $hero;
-$_SESSION['monster'] = new Monster(0, 'Monster', 80, 80, 5, 2);
+$_SESSION['monster'] = $monster;
 $_SESSION['result'] = "fighting";
 
 header("Location: /public/fight.php");

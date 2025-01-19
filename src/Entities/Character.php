@@ -3,25 +3,18 @@
 abstract class Character implements AttackableContract
 {
     use AttackableTrait;
-    protected int $id;
     protected string $name;
     protected int $attack;
+    protected string $picturePath;
 
 
-    public function __construct(int $id, string $name = "", int $health = 100, int $healthMax = 100, int $attack = 15, int $defense = 3)
+    public function __construct(string $name = "", int $health = 100, int $healthMax = 100, int $attack = 15, int $defense = 3)
     {
-        $this->id = $id;
         $this->name = $name;
         $this->health = $health;
         $this->healthMax = $healthMax;
         $this->attack = $attack;
         $this->defense = $defense;
-    }
-
-
-    public function getId(): int
-    {
-        return $this->id;
     }
 
     public function getName(): string
@@ -32,6 +25,14 @@ abstract class Character implements AttackableContract
     public function getAttack(): int
     {
         return $this->attack;
+    }
+
+    /**
+     * Get the value of picturePath
+     */
+    public function getPicturePath(): string
+    {
+        return $this->picturePath;
     }
 
     public function hit(AttackableContract $target): void

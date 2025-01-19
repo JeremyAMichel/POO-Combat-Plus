@@ -2,14 +2,15 @@
 
 final class Hero extends Character
 {
-
+    private int $id;
     private string $gender;
-    private string $picturePath;
+
 
     public function __construct(int $id, string $name = "", string $gender = "Male", int $health = 100, int $healthMax = 100, int $attack = 15, int $defense = 3)
     {
-        parent::__construct($id, $name, $health, $healthMax, $attack, $defense);
+        parent::__construct($name, $health, $healthMax, $attack, $defense);
 
+        $this->id = $id;
         $this->gender = $gender;
 
         if ($gender === "Male") {
@@ -19,16 +20,15 @@ final class Hero extends Character
         }
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function getGender(): string
     {
         return $this->gender;
     }
 
-    /**
-     * Get the value of picturePath
-     */
-    public function getPicturePath()
-    {
-        return $this->picturePath;
-    }
+    
 }
