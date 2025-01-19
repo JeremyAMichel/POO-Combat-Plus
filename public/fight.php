@@ -26,9 +26,11 @@ require_once './partials/header.php';
     <div id="fight" class="text-center mb-8 w-full">
         <h1 class="text-3xl font-bold text-white mb-8 <?php if ($result !== "fighting") echo "hidden" ?>">Combat</h1>
         <?php if ($result === "fighting"): ?>
-            <div id="fight-screen" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div id="fight-screen" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <article class="bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition duration-500 p-4 relative">
-                    <img src="<?php echo htmlspecialchars($hero->getPicturePath()); ?>" alt="<?php echo htmlspecialchars($hero->getName()); ?>" class="w-full h-48 object-contain mb-4">
+
+                    <img src="<?php echo htmlspecialchars($hero->getPicturePath()); ?>" alt="<?php echo htmlspecialchars($hero->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
+
                     <div class="p-4">
                         <h2 class="text-xl font-bold mb-4 text-white">🦸 <?php echo htmlspecialchars($hero->getName()); ?></h2>
                         <div class="flex justify-evenly mb-4">
@@ -40,8 +42,11 @@ require_once './partials/header.php';
                         </div>
                     </div>
                 </article>
+                <div>
+                    
+                </div>
                 <article class="bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition duration-500 p-4 relative">
-                    <img src="/public/assets/imgs/goblin.gif" alt="<?php echo htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4">
+                    <img src="/public/assets/imgs/goblin.gif" alt="<?php echo htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
                     <div class="p-4">
                         <h2 class="text-xl font-bold mb-4 text-white">👾 <?= htmlspecialchars($monster->getName()); ?></h2>
                         <div class="flex justify-evenly mb-4">
