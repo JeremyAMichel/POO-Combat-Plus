@@ -6,12 +6,12 @@ final class Hero extends Character
     private string $gender;
     private string $picturePath;
 
-    public function __construct(int $id, string $name = "", string $gender = "Male", int $health = 100, int $healthMax = 100, int $attack = 15)
+    public function __construct(int $id, string $name = "", string $gender = "Male", int $health = 100, int $healthMax = 100, int $attack = 15, int $defense = 3)
     {
-        parent::__construct($id, $name, $health, $healthMax, $attack);
+        parent::__construct($id, $name, $health, $healthMax, $attack, $defense);
 
         $this->gender = $gender;
-        
+
         if ($gender === "Male") {
             $this->picturePath = "/public/assets/imgs/lambda-hero.gif";
         } else {

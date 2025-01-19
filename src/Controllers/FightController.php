@@ -28,7 +28,7 @@ final class FightController
 
                 if ($this->hero->getHealth() <= 0) {
                     $action = 'defeat';
-                    $reponse = $this->handleDefeat();
+                    $response = $this->handleDefeat();
                 }
 
                 if ($this->monster->getHealth() <= 0) {

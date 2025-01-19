@@ -33,6 +33,7 @@ require_once './partials/header.php';
                     <div class="flex justify-between mb-4">
                         <p class="text-gray-400">❤️ <?php echo htmlspecialchars($hero->getHealth()); ?>/<?php echo htmlspecialchars($hero->getHealthMax()); ?></p>
                         <p class="text-gray-400">⚔️ <?php echo htmlspecialchars($hero->getAttack()); ?></p>
+                        <p class="text-gray-400">🛡️ <?php echo htmlspecialchars($hero->getDefense()); ?></p>
                     </div>
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
                         <div class="bg-green-500 h-2.5 rounded-full" style="width: <?php echo htmlspecialchars($hero->getHealth()); ?>%"></div>

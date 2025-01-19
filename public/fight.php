@@ -15,7 +15,15 @@ if (!isset($_SESSION['hero']) || !isset($_SESSION['monster']) || !isset($_SESSIO
  * @var Hero $hero
  */
 $hero = $_SESSION['hero'];
+
+/**
+ * @var Monster $monster
+ */
 $monster = $_SESSION['monster'];
+
+/**
+ * @var string $result
+ */
 $result = $_SESSION['result'];
 
 require_once './partials/header.php';
@@ -36,6 +44,7 @@ require_once './partials/header.php';
                         <div class="flex justify-evenly mb-4">
                             <p class="text-gray-400">❤️ <span id="hero-health"><?php echo htmlspecialchars($hero->getHealth()); ?></span>/<?php echo htmlspecialchars($hero->getHealthMax()); ?></p>
                             <p class="text-gray-400">⚔️ <?php echo htmlspecialchars($hero->getAttack()); ?></p>
+                            <p class="text-gray-400">🛡️ <?php echo htmlspecialchars($hero->getDefense()); ?></p>
                         </div>
                         <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
                             <div id="hero-healthBar" class="bg-green-500 h-2.5 rounded-full transition-all" style="width: <?php echo htmlspecialchars($hero->getHealth() / $hero->getHealthMax() * 100); ?>%"></div>
@@ -52,6 +61,7 @@ require_once './partials/header.php';
                         <div class="flex justify-evenly mb-4">
                             <p class="text-gray-400">❤️ <span id="monster-health"><?= htmlspecialchars($monster->getHealth()); ?></span>/<?= htmlspecialchars($monster->getHealthMax()); ?></p>
                             <p class="text-gray-400">⚔️ <?= htmlspecialchars($monster->getAttack()); ?></p>
+                            <p class="text-gray-400">🛡️ <?= htmlspecialchars($monster->getDefense()); ?></p>
                         </div>
                         <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
                             <div id="monster-healthBar" class="bg-red-500 h-2.5 rounded-full transition-all" style="width: <?php echo htmlspecialchars($monster->getHealth() / $monster->getHealthMax() * 100) ?>%"></div>

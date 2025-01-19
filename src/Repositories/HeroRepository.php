@@ -39,7 +39,7 @@ final class HeroRepository extends AbstractRepository
 
     public function create(Hero $hero): void
     {
-        $sql = 'INSERT INTO `hero`(`name`, `health`, `gender`, `picture_path`, `hp_max`, `attack`) VALUES (:name, :health, :gender, :picture_path, :hp_max, :attack)';
+        $sql = 'INSERT INTO `hero`(`name`, `health`, `gender`, `picture_path`, `hp_max`, `attack`, `defense`) VALUES (:name, :health, :gender, :picture_path, :hp_max, :attack, :defense)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ':name' => $hero->getName(),
@@ -48,6 +48,7 @@ final class HeroRepository extends AbstractRepository
             ':picture_path' => $hero->getPicturePath(),
             ':hp_max' => $hero->getHealthMax(),
             ':attack' => $hero->getAttack(),
+            ':defense' => $hero->getDefense(),
         ]);
     }
 
