@@ -37,17 +37,17 @@ require_once './partials/header.php';
             <div id="fight-screen" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <article class="bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition duration-500 p-4 relative">
 
-                    <img src="<?php echo htmlspecialchars($hero->getPicturePath()); ?>" alt="<?php echo htmlspecialchars($hero->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
+                    <img src="<?= htmlspecialchars($hero->getPicturePath()); ?>" alt="<?= htmlspecialchars($hero->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
 
                     <div class="p-4">
-                        <h2 class="text-xl font-bold mb-4 text-white">🦸 <?php echo htmlspecialchars($hero->getName()); ?></h2>
+                        <h2 class="text-xl font-bold mb-4 text-white">🦸 <?= htmlspecialchars($hero->getName()); ?></h2>
                         <div class="flex justify-evenly mb-4">
-                            <p class="text-gray-400">❤️ <span id="hero-health"><?php echo htmlspecialchars($hero->getHealth()); ?></span>/<?php echo htmlspecialchars($hero->getHealthMax()); ?></p>
-                            <p class="text-gray-400">⚔️ <?php echo htmlspecialchars($hero->getAttack()); ?></p>
-                            <p class="text-gray-400">🛡️ <?php echo htmlspecialchars($hero->getDefense()); ?></p>
+                            <p class="text-gray-400">❤️ <span id="hero-health"><?= htmlspecialchars($hero->getHealth()); ?></span>/<?= htmlspecialchars($hero->getHealthMax()); ?></p>
+                            <p class="text-gray-400">⚔️ <?= htmlspecialchars($hero->getAttack()); ?></p>
+                            <p class="text-gray-400">🛡️ <?= htmlspecialchars($hero->getDefense()); ?></p>
                         </div>
                         <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
-                            <div id="hero-healthBar" class="bg-green-500 h-2.5 rounded-full transition-all" style="width: <?php echo htmlspecialchars($hero->getHealth() / $hero->getHealthMax() * 100); ?>%"></div>
+                            <div id="hero-healthBar" class="bg-green-500 h-2.5 rounded-full transition-all" style="width: <?= htmlspecialchars($hero->getHealth() / $hero->getHealthMax() * 100); ?>%"></div>
                         </div>
                     </div>
                 </article>
@@ -55,7 +55,7 @@ require_once './partials/header.php';
                     <h2 class="text-9xl font-bold text-white">VS</h2>
                 </div>
                 <article class="bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition duration-500 p-4 relative">
-                    <img src="<?= htmlspecialchars($monster->getPicturePath())  ?>" alt="<?php echo htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
+                    <img src="<?= htmlspecialchars($monster->getPicturePath())  ?>" alt="<?= htmlspecialchars($monster->getName()); ?>" class="w-full h-48 object-contain mb-4 border-4 border-yellow-600 rounded-sm shadow-lg">
                     <div class="p-4">
                         <h2 class="text-xl font-bold mb-4 text-white">👾 <?= htmlspecialchars($monster->getName()); ?></h2>
                         <div class="flex justify-evenly mb-4">
@@ -64,7 +64,7 @@ require_once './partials/header.php';
                             <p class="text-gray-400">🛡️ <?= htmlspecialchars($monster->getDefense()); ?></p>
                         </div>
                         <div class="w-full bg-gray-700 rounded-full h-2.5 mb-8">
-                            <div id="monster-healthBar" class="bg-red-500 h-2.5 rounded-full transition-all" style="width: <?php echo htmlspecialchars($monster->getHealth() / $monster->getHealthMax() * 100) ?>%"></div>
+                            <div id="monster-healthBar" class="bg-red-500 h-2.5 rounded-full transition-all" style="width: <?= htmlspecialchars($monster->getHealth() / $monster->getHealthMax() * 100) ?>%"></div>
                         </div>
                     </div>
                 </article>
