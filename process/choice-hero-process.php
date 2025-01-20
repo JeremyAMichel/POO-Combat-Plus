@@ -2,7 +2,6 @@
 
 require_once '../utils/autoloader.php';
 
-// TODO Use validators !!
 $validator = new ValidatorService();
 
 $validator->checkMethods('POST');
@@ -47,4 +46,7 @@ $_SESSION['hero'] = $hero;
 $_SESSION['monster'] = $monster;
 $_SESSION['result'] = "fighting";
 
+// var_dump($_SESSION);
+
 header("Location: /public/fight.php");
+exit;

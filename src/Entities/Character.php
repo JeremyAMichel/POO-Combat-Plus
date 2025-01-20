@@ -8,7 +8,7 @@ abstract class Character implements AttackableContract
     protected string $picturePath;
 
 
-    public function __construct(string $name = "", int $health = 100, int $healthMax = 100, int $attack = 15, int $defense = 3)
+    public function __construct(string $name, int $health, int $healthMax, int $attack, int $defense)
     {
         $this->name = $name;
         $this->health = $health;
