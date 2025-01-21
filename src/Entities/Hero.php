@@ -14,9 +14,9 @@ final class Hero extends Character
         $this->gender = $gender;
 
         if ($gender === "Male") {
-            $this->picturePath = "/public/assets/imgs/lambda-hero.gif";
+            $this->picturePath = "./assets/imgs/lambda-hero.gif";
         } else {
-            $this->picturePath = "/public/assets/imgs/lambda-heroin.gif";
+            $this->picturePath = "./assets/imgs/lambda-heroin.gif";
         }
     }
 

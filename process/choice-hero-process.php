@@ -48,5 +48,5 @@ $_SESSION['result'] = "fighting";
 
 // var_dump($_SESSION);
 
-header("Location: /public/fight.php");
+header("Location: ../public/fight.php");
 exit;

@@ -22,6 +22,6 @@ $heroRepository = new HeroRepository();
 $hero = new Hero(0, $sanitizedData['name'], $sanitizedData['gender']);
 $heroRepository->create($hero);
 
-header("Location: /public/choice-hero.php");
+header("Location: ../public/choice-hero.php");
 
 ?>

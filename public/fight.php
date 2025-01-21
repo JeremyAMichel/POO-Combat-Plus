@@ -7,7 +7,7 @@ session_start();
 
 
 if (!isset($_SESSION['hero']) || !isset($_SESSION['monster']) || !isset($_SESSION['result'])) {
-    header('Location: /public/choice-hero.php');
+    header('Location: ./choice-hero.php');
     exit;
 }
 
@@ -79,7 +79,7 @@ require_once './partials/header.php';
             <div class="flex items-center justify-center flex-col relative">
                 <img src="./assets/imgs/victory.png" alt="victory" class="w-1/2">
                 <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300 mt-4 absolute 
-                bottom-32" onclick="window.location.href = '/public/choice-hero.php'">
+                bottom-32" onclick="window.location.href = './choice-hero.php'">
                     Continue
                 </button>
             </div>
@@ -87,7 +87,7 @@ require_once './partials/header.php';
             <div class="flex items-center justify-center flex-col relative">
                 <img src="./assets/imgs/defeat.webp" alt="victory" class="w-1/2">
                 <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300 mt-4 absolute 
-                bottom-56" onclick="window.location.href = '/public/choice-hero.php'">
+                bottom-56" onclick="window.location.href = './choice-hero.php'">
                     Continue
                 </button>
             </div>
